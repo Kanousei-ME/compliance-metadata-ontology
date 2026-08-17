@@ -27,7 +27,7 @@
       "gmdn_code": "11223",
       "emdn_code": "A0303",
       "consumption_type": "discrete",
-      "consumption_unit": "pair",
+      "consumption_unit": "each",
       "attributes": { "size": "M", "material": "nitrile", "sterility": "non-sterile" }
     },
     {

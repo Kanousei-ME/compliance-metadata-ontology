@@ -45,7 +45,7 @@ The unit a product is *consumed* in is a functional property of the specificatio
 | Field | Meaning |
 |---|---|
 | `consumption_type` | `discrete` (whole items) \| `continuous` (measured: ml, g, m) |
-| `consumption_unit` | governed unit of usage: `pc`, `pair`, `ml`, `g`, `m`, `wipe`, `roll`, … |
+| `consumption_unit` | governed unit of usage: `each`, `pair`, `ml`, `g`, `m`, `wipe`, `roll`, … |
 
 `product.unit_of_measure` (a free-text brand-level string today) should **derive** from `consumption_unit` — the specification is the source of truth.
 
