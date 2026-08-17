@@ -1,0 +1,28 @@
+{
+  "specifications": [
+    {
+      "id": "spec-adhesive-bandage-u",
+      "name": "Adhesive bandage — size U, sterile",
+      "category": "bandage",
+      "gmdn_code": "12345",
+      "emdn_code": "A0101",
+      "attributes": { "size": "U", "sterility": "sterile", "material": "fabric" }
+    },
+    {
+      "id": "spec-gauze-10x10",
+      "name": "Sterile gauze pad — 10 cm × 10 cm",
+      "category": "dressing",
+      "gmdn_code": "67890",
+      "emdn_code": "A0202",
+      "attributes": { "size": "10x10cm", "sterility": "sterile" }
+    },
+    {
+      "id": "spec-glove-nitrile-m",
+      "name": "Nitrile examination glove — medium",
+      "category": "glove",
+      "gmdn_code": "11223",
+      "emdn_code": "A0303",
+      "attributes": { "size": "M", "material": "nitrile", "sterility": "non-sterile" }
+    }
+  ]
+}
