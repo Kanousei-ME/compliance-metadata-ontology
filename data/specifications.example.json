@@ -7,7 +7,8 @@
       "gmdn_code": "12345",
       "emdn_code": "A0101",
       "consumption_type": "discrete",
-      "consumption_unit": "pc",
+      "consumption_unit": "each",
+      "consumption_unit_ucum": "{each}",
       "attributes": { "size": "U", "sterility": "sterile", "material": "fabric" }
     },
     {
@@ -17,7 +18,8 @@
       "gmdn_code": "67890",
       "emdn_code": "A0202",
       "consumption_type": "discrete",
-      "consumption_unit": "pc",
+      "consumption_unit": "each",
+      "consumption_unit_ucum": "{each}",
       "attributes": { "size": "10x10cm", "sterility": "sterile" }
     },
     {
@@ -28,6 +30,7 @@
       "emdn_code": "A0303",
       "consumption_type": "discrete",
       "consumption_unit": "each",
+      "consumption_unit_ucum": "{each}",
       "attributes": { "size": "M", "material": "nitrile", "sterility": "non-sterile" }
     },
     {
@@ -38,6 +41,7 @@
       "emdn_code": "A0404",
       "consumption_type": "continuous",
       "consumption_unit": "ml",
+      "consumption_unit_ucum": "mL",
       "attributes": { "volume": "10ml", "sterility": "sterile" }
     }
   ]

@@ -45,9 +45,21 @@ The unit a product is *consumed* in is a functional property of the specificatio
 | Field | Meaning |
 |---|---|
 | `consumption_type` | `discrete` (whole items) \| `continuous` (measured: ml, g, m) |
-| `consumption_unit` | governed unit of usage: `each`, `pair`, `ml`, `g`, `m`, `wipe`, `roll`, … |
+| `consumption_unit` | governed display label: `each`, `pair`, `ml`, `g`, `m`, `wipe`, `roll`, … |
+| `consumption_unit_ucum` | [UCUM](https://ucum.org) code, e.g. `{each}`, `mL` |
 
 `product.unit_of_measure` (a free-text brand-level string today) should **derive** from `consumption_unit` — the specification is the source of truth.
+
+## Compliance standards & rules
+
+A standard (ANSI/ISEA Z308.1, BS 8599) is a versioned, country-scoped entity; its rules map required specifications to quantities.
+
+| Entity | Fields | Meaning |
+|---|---|---|
+| `compliance_standard` | `name`, `country`, `version`, `is_current`, `superseded_at`, `superseded_by` | a versioned standard |
+| `compliance_rule` | `standard_id`, `specification_id`, `quantity_units` | "standard S requires spec X at quantity Q" |
+
+Versioning is append-and-supersede: a new edition adds a new `compliance_standard` row and marks the old one `is_current = false` + `superseded_at`.
 
 ## Governance (the moat)
 
@@ -60,6 +72,8 @@ The value is the *maintained, validated mapping*, not the schema:
 ## Global scale — roadmap & open questions
 
 The model is **architecture-global, data-local**: GMDN/EMDN naming and country-parameterized rules scale without schema change, but three primitives are currently US/UK-shaped and must be hardened before multi-country use — free-text attributes, free-text units, and kit-contents-only compliance.
+
+> **Status:** items 1 (UCUM) and 3 (standard versioning) are now modeled in `schema/schema.sql`; items 2, 4–7 remain open.
 
 ### 1. Units → UCUM (adopt the commodity)
 

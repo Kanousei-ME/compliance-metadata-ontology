@@ -1,23 +1,25 @@
 {
-  "rules": [
+  "standards": [
     {
-      "standard": "ANSI/ISEA Z308.1-2021",
-      "class": "A",
+      "id": "std-ansi-z308-1-2021",
+      "name": "ANSI/ISEA Z308.1",
       "country": "US",
-      "requires": [
-        { "specification": "spec-adhesive-bandage-u", "quantity_units": 16 },
-        { "specification": "spec-gauze-10x10", "quantity_units": 4 },
-        { "specification": "spec-glove-nitrile-m", "quantity_units": 2 }
-      ]
+      "version": "2021",
+      "is_current": true
     },
     {
-      "standard": "BS 8599-1:2019",
-      "size": "small",
+      "id": "std-bs8599-1-2019",
+      "name": "BS 8599-1",
       "country": "GB",
-      "requires": [
-        { "specification": "spec-adhesive-bandage-u", "quantity_units": 20 },
-        { "specification": "spec-gauze-10x10", "quantity_units": 2 }
-      ]
+      "version": "2019",
+      "is_current": true
     }
+  ],
+  "rules": [
+    { "standard": "std-ansi-z308-1-2021", "specification": "spec-adhesive-bandage-u", "quantity_units": 16 },
+    { "standard": "std-ansi-z308-1-2021", "specification": "spec-gauze-10x10", "quantity_units": 4 },
+    { "standard": "std-ansi-z308-1-2021", "specification": "spec-glove-nitrile-m", "quantity_units": 2 },
+    { "standard": "std-bs8599-1-2019", "specification": "spec-adhesive-bandage-u", "quantity_units": 20 },
+    { "standard": "std-bs8599-1-2019", "specification": "spec-gauze-10x10", "quantity_units": 2 }
   ]
 }

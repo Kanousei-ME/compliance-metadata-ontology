@@ -8,7 +8,8 @@ CREATE TABLE product_specification (
     gmdn_code   VARCHAR(50),      -- adopt the standard nomenclature
     emdn_code   VARCHAR(50),      -- EMDN / EUDAMED
     consumption_type VARCHAR(20) NOT NULL DEFAULT 'discrete',  -- discrete | continuous
-    consumption_unit VARCHAR(20) NOT NULL DEFAULT 'each',      -- governed unit of usage
+    consumption_unit VARCHAR(20) NOT NULL DEFAULT 'each',      -- display label
+    consumption_unit_ucum VARCHAR(20),                      -- UCUM code: {each}, mL, g, m
     attributes  JSONB,            -- { size, sterility, material, ... }
     created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at  TIMESTAMPTZ NOT NULL DEFAULT now()
@@ -35,4 +36,23 @@ CREATE TABLE kit_template_product (
     quantity         INTEGER NOT NULL DEFAULT 1,                                    -- packs
     is_mandatory     BOOLEAN NOT NULL DEFAULT true,
     UNIQUE (kit_template_id, specification_id)
+);
+
+CREATE TABLE compliance_standard (
+    id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name          VARCHAR(255) NOT NULL,          -- e.g. "ANSI/ISEA Z308.1"
+    country       VARCHAR(3),                     -- ISO 3166-1 alpha-3 (future: FK to geography)
+    version       VARCHAR(50),                    -- e.g. "2021"
+    is_current    BOOLEAN NOT NULL DEFAULT true,
+    superseded_at TIMESTAMPTZ,
+    superseded_by UUID REFERENCES compliance_standard(id),
+    UNIQUE (name, country, version)
+);
+
+CREATE TABLE compliance_rule (
+    id               UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    standard_id      UUID NOT NULL REFERENCES compliance_standard(id),
+    specification_id UUID NOT NULL REFERENCES product_specification(id),
+    quantity_units   INTEGER NOT NULL,            -- individual units
+    UNIQUE (standard_id, specification_id)
 );
