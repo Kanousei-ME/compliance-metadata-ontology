@@ -12,6 +12,8 @@ erDiagram
         string category
         string gmdn_code
         string emdn_code
+        string consumption_type
+        string consumption_unit
         json attributes
     }
     PRODUCT {

@@ -6,6 +6,8 @@
       "category": "bandage",
       "gmdn_code": "12345",
       "emdn_code": "A0101",
+      "consumption_type": "discrete",
+      "consumption_unit": "pc",
       "attributes": { "size": "U", "sterility": "sterile", "material": "fabric" }
     },
     {
@@ -14,6 +16,8 @@
       "category": "dressing",
       "gmdn_code": "67890",
       "emdn_code": "A0202",
+      "consumption_type": "discrete",
+      "consumption_unit": "pc",
       "attributes": { "size": "10x10cm", "sterility": "sterile" }
     },
     {
@@ -22,7 +26,19 @@
       "category": "glove",
       "gmdn_code": "11223",
       "emdn_code": "A0303",
+      "consumption_type": "discrete",
+      "consumption_unit": "pair",
       "attributes": { "size": "M", "material": "nitrile", "sterility": "non-sterile" }
+    },
+    {
+      "id": "spec-saline-10ml",
+      "name": "Sterile saline solution — 10 ml vial",
+      "category": "solution",
+      "gmdn_code": "44556",
+      "emdn_code": "A0404",
+      "consumption_type": "continuous",
+      "consumption_unit": "ml",
+      "attributes": { "volume": "10ml", "sterility": "sterile" }
     }
   ]
 }

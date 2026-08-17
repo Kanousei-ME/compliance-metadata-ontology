@@ -38,6 +38,17 @@ standard + country  →  required specification + quantity
 
 **Example:** "Adhesive bandage, box of 100" → `units_per_pack = 100`. A template line = `2` packs. Kit contents = `expected_quantity = 200` units. An incident using 3 → `quantity_used = 3`.
 
+## Units of usage
+
+The unit a product is *consumed* in is a functional property of the specification, not the brand. Two brands of bandage are both counted in `pc`; saline is measured in `ml`; gloves in `pair`.
+
+| Field | Meaning |
+|---|---|
+| `consumption_type` | `discrete` (whole items) \| `continuous` (measured: ml, g, m) |
+| `consumption_unit` | governed unit of usage: `pc`, `pair`, `ml`, `g`, `m`, `wipe`, `roll`, … |
+
+`product.unit_of_measure` (a free-text brand-level string today) should **derive** from `consumption_unit` — the specification is the source of truth.
+
 ## Governance (the moat)
 
 The value is the *maintained, validated mapping*, not the schema:

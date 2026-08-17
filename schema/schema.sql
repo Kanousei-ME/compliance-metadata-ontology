@@ -7,6 +7,8 @@ CREATE TABLE product_specification (
     category    VARCHAR(100),
     gmdn_code   VARCHAR(50),      -- adopt the standard nomenclature
     emdn_code   VARCHAR(50),      -- EMDN / EUDAMED
+    consumption_type VARCHAR(20) NOT NULL DEFAULT 'discrete',  -- discrete | continuous
+    consumption_unit VARCHAR(20) NOT NULL DEFAULT 'pc',        -- governed unit of usage
     attributes  JSONB,            -- { size, sterility, material, ... }
     created_at  TIMESTAMPTZ NOT NULL DEFAULT now(),
     updated_at  TIMESTAMPTZ NOT NULL DEFAULT now()
